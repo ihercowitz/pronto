@@ -7,8 +7,8 @@
   
      <b-button-group v-if="isBoolean">
       <b-button @click="setSelection('')" :class="{ 'btn-success': '' === selectedValue }">Em branco</b-button>
-      <b-button :key="yes" @click="setSelection('Y')" :class="{ 'btn-success': 'Y' === selectedValue }">Sim</b-button>
-      <b-button :key="yes" @click="setSelection('N')" :class="{ 'btn-success': 'N' === selectedValue }">Nao</b-button>
+      <b-button @click="setSelection('Y')" :class="{ 'btn-success': 'Y' === selectedValue }">Sim</b-button>
+      <b-button @click="setSelection('N')" :class="{ 'btn-success': 'N' === selectedValue }">Nao</b-button>
     </b-button-group>
   </div>
 

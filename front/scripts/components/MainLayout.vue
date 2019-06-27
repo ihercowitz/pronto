@@ -53,6 +53,7 @@ export default {
        .then(response => {
           this.active = 'initial'
           this.$showMessage(response.status)
+          this.$store.commit('resetData')
        })
 
      }

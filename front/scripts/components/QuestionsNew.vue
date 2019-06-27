@@ -9,7 +9,7 @@
       <div class='questions mt-5 text-center' v-for='(item, index) in answers' :key='index'>
          <b-card>
             <h6 slot="header" class="mb-0"># {{ index + 1 }}</h6>
-            <b-card-text> <answer :selected='answers[index]' @aswered="updateAnswered($event, index)"/> </b-card-text>
+            <b-card-text> <answer :selected='answers[index]' @aswered="updateAnswered($event, index)" :isBoolean="id== 'q2' && index == 19"/> </b-card-text>
          </b-card>         
       </div>
     </b-row>
@@ -34,7 +34,7 @@ export default {
   methods: {
     updateAnswered(answer, questionNumber) {
       this.answers[questionNumber] = answer!== ''? parseInt(answer): ''   
-      this.score = this.answers.filter(el => el !== "").reduce((acc, item) => acc + item) 
+      this.score = this.answers.filter(el => Number.isInteger(el)).reduce((acc, item) => acc + item) 
       this.$store.commit('updateData',  { [this.id] : {'answers': this.answers, 'score': this.score } })
     },
     changeScreen(screen) {
